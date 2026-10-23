@@ -29,6 +29,9 @@
   var finePointer = window.matchMedia
     ? window.matchMedia("(pointer: fine)")
     : null;
+  var coarsePointer = window.matchMedia
+    ? window.matchMedia("(pointer: coarse)")
+    : null;
   var lastPointer = {
     x: window.innerWidth * 0.5,
     y: window.innerHeight * 0.62,
@@ -44,7 +47,7 @@
         hit &&
         hit.closest(
           'a,button,input,textarea,select,label,[role="button"],form,' +
-            '.grid > div,[style*="aspect-ratio"]'
+            '[style*="border-radius"]'
         )
       );
       document.body.classList.toggle("kitty-over-ui", overUi);
@@ -401,7 +404,7 @@
     var pageView = document.getElementById("page-view");
     if (pageView && pageView.hidden) suspended = true;
     var stored = readStored();
-    if (stored) {
+    if (stored && !(coarsePointer && coarsePointer.matches && stored === "kitty")) {
       apply(stored);
     } else if (reducedQuery && reducedQuery.matches) {
       apply("off");
@@ -430,6 +433,12 @@
       if (!next) return;
       choose(next, true);
     });
+
+    if (coarsePointer && coarsePointer.addEventListener) {
+      coarsePointer.addEventListener("change", function (event) {
+        if (event.matches && mode === "kitty") apply("fluid");
+      });
+    }
 
     if (reducedQuery) {
       var onChange = function (event) {

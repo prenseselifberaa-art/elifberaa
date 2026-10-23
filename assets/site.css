@@ -651,3 +651,9 @@ body.kitty-over-ui #kitty-layer {
     transition: none;
   }
 }
+
+@media (pointer: coarse) {
+  #anim-dock [data-anim="kitty"] {
+    display: none;
+  }
+}
