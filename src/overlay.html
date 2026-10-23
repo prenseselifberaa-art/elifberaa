@@ -1,0 +1,59 @@
+<div id="ask-view" role="main" aria-label="Ask Elif" hidden>
+  <h1 class="sr-only">Ask Elif a question</h1>
+  <div>
+    <div class="min-h-screen bg-background text-foreground transition-colors">
+      <div class="min-h-screen" style="--ff-accent: #e64a8d; --ff-page-bg: #fdeff4; --ff-tile-bg: #ffffff; --ff-tile-fg: #2a1620; --ff-tile-border: #f6d9e4; --ff-tile-border-w: 1px; --ff-tile-radius: 28px; --ff-tile-gap: 30px; --background: 338.6 77.8% 96.5%; --foreground: 330 31.3% 12.5%; --card: 0 0% 100%; --card-foreground: 330 31.3% 12.5%; --popover: 0 0% 100%; --popover-foreground: 330 31.3% 12.5%; --primary: 330 31.3% 12.5%; --primary-foreground: 0 0% 100%; --secondary: 338.6 29.2% 90.6%; --secondary-foreground: 330 31.3% 12.5%; --muted: 338.6 29.2% 90.6%; --muted-foreground: 335.3 6.7% 50.4%; --accent: 338.6 29.2% 90.6%; --accent-foreground: 330 31.3% 12.5%; --border: 337.2 61.7% 90.8%; --input: 337.2 61.7% 90.8%; --ring: 334.2 75.7% 59.6%; color-scheme: light; color: rgb(42, 22, 32); background: rgb(253, 239, 244); font-family: var(--font-dm-sans), system-ui, sans-serif;">
+        <div class="relative h-screen overflow-hidden">
+          <div aria-hidden="true" class="ig-root pointer-events-none fixed inset-0 z-[60] overflow-hidden">
+            <div class="ig-frame absolute inset-0 overflow-hidden" data-phase="on" style="border-radius: 0px;">
+              <span class="absolute inset-0 rounded-[inherit]" style="--o: 1; opacity: 1; filter: blur(10px); animation-delay: 0s;"><span class="ig-layer" style="--t: 7px; background: conic-gradient(from var(--ig-angle), #f04c92, #f4717e, #ef39c4, #f2825f, #da26ed, #f47b9b, #f04c92);"></span></span>
+              <span class="absolute inset-0 rounded-[inherit]" style="--o: 1; opacity: 1; filter: blur(7px); animation-delay: 0s;"><span class="ig-layer" style="--t: 3px; background: conic-gradient(from var(--ig-angle), #f04c92, #f4717e, #ef39c4, #f2825f, #da26ed, #f47b9b, #f04c92);"></span></span>
+              <span class="absolute inset-0 rounded-[inherit] ig-breathe" style="--o: 1; opacity: 1; filter: blur(16px); animation-delay: 0s;"><span class="ig-layer" style="--t: 4px; background: conic-gradient(from var(--ig-angle), #f04c92, #f4717e, #ef39c4, #f2825f, #da26ed, #f47b9b, #f04c92);"></span></span>
+              <span class="absolute inset-0 rounded-[inherit] ig-breathe" style="--o: 0.9; opacity: 0.9; filter: blur(20px); animation-delay: 0.2s;"><span class="ig-layer" style="--t: 8px; background: conic-gradient(from var(--ig-angle), #f04c92, #f4717e, #ef39c4, #f2825f, #da26ed, #f47b9b, #f04c92);"></span></span>
+            </div>
+          </div>
+
+          <button id="ask-back" type="button" aria-label="Back to the page" class="fixed top-8 left-8 z-50 flex size-9 items-center justify-center text-foreground transition-opacity hover:opacity-60">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+          </button>
+
+          <div class="fixed top-0 right-0 left-0 z-40" style="background: linear-gradient(rgb(253, 239, 244) 0%, color-mix(in srgb, rgb(253, 239, 244) 95%, transparent 5%) 30%, color-mix(in srgb, rgb(253, 239, 244) 80%, transparent 20%) 50%, transparent 100%);">
+            <div class="transition-all duration-300 ease-in-out py-6">
+              <div class="flex justify-center">
+                <button id="ask-avatar" type="button" aria-label="Back to the page" class="relative block shrink-0 overflow-hidden transition-all duration-300 ease-in-out size-28 rounded-2xl">
+                  <img alt="Elif Çığrıkçı" draggable="false" src="/images/avatar.jpg" style="position: absolute; object-fit: cover; object-position: 50% 50%; max-width: none; left: 0%; top: 0%; width: 100%; height: 100%;">
+                </button>
+              </div>
+              <div class="mx-auto flex max-w-3xl px-4 py-3">
+                <div class="flex gap-2 items-start group self-center flex-row-reverse mx-auto relative group">
+                  <div class="p-2 px-5 bg-primary text-primary-foreground rounded-3xl [&amp;_.prose]:text-inherit [&amp;_.prose_p]:text-inherit [&amp;_.prose_*]:text-inherit break-words max-w-full whitespace-pre-wrap" style="background: rgb(230, 74, 141); color: rgb(0, 0, 0);"><div class="w-full"><div class="w-full space-y-3"><div class="prose w-full max-w-none whitespace-normal break-words leading-[1.6] [--tw-prose-body:currentColor]"><p class="my-3 first:mt-0 last:mb-0" id="ask-question-top"></p></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p id="ask-status" class="sr-only" role="status" aria-live="polite"></p>
+          <div class="container mx-auto flex h-full max-w-3xl flex-col">
+            <div id="ask-scroll" class="flex-1 overflow-y-auto px-2 hide-scrollbar" style="padding-top: 180px;">
+              <div class="px-4 pt-18" id="ask-thread" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Conversation"></div>
+            </div>
+            <div class="sticky bottom-0 bg-transparent pt-3 md:px-16 md:pb-4">
+              <div class="relative flex flex-col items-center gap-3">
+                <div class="w-full pb-2 md:pb-5">
+                  <form class="relative w-full md:px-4" id="ask-form" autocomplete="off">
+                    <div class="mx-auto flex flex-shrink-0 cursor-text items-center rounded-full py-2.5 pr-2 pl-6 backdrop-blur-lg" style="width: min(350px, 100%); transition: width 0.3s ease-out; background: var(--ff-tile-bg, #ffffff); color: rgb(42, 22, 32); border-style: solid; border-width: 1px; border-color: var(--ff-tile-border, #e5e5e5);">
+                      <input id="ask-input" name="q" placeholder="Ask me anything…" aria-label="Ask me anything" class="w-full border-none bg-transparent text-base text-current placeholder:text-current placeholder:opacity-50 focus:outline-none" type="text">
+                      <button type="submit" id="ask-submit" aria-label="Submit question" disabled class="flex items-center justify-center rounded-full p-2.5 transition-colors hover:opacity-90 disabled:opacity-70" style="background: rgb(230, 74, 141); color: rgb(0, 0, 0);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up h-5 w-5" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

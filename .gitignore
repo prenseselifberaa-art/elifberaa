@@ -1,0 +1,35 @@
+# İşletim sistemi ve dosya yöneticisi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editör ve IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ortam değerleri ve sırlar
+.env
+.env.*
+!.env.example
+
+# Günlük ve geçici dosyalar
+*.log
+tmp/
+.cache/
+
+# Bağımlılık ve derleme çıktıları (yığın seçilmeden de korumalı)
+node_modules/
+dist/
+build/
+__pycache__/
+.venv/
+*.pyc
+
+# Vercel
+.vercel/
+
+# Geçici
+.tmp/
+.vercel
