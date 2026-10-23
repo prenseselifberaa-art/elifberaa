@@ -574,7 +574,7 @@ body.kitty-over-ui #kitty-layer {
   }
 }
 
-#page-view button[aria-label="Who are you?"]::after {
+#page-view button[aria-label="Who are you?"]:not([data-anim])::after {
   width: 46%;
   background: linear-gradient(
     100deg,
@@ -637,27 +637,11 @@ body.kitty-over-ui #kitty-layer {
 
 @media (prefers-reduced-motion: reduce) {
   .avatar-ring,
-  @media (max-width: 999px) {
-  #page-view button[aria-label="Who are you?"] img {
-    animation: avatar-breathe 9s ease-in-out infinite;
-  }
-}
-
-@keyframes avatar-breathe {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.018);
-  }
-}
-
-#ask-avatar::after {
+  #ask-avatar::after {
     animation: none;
   }
 
-  #page-view button[aria-label="Who are you?"]::after {
+  #page-view button[aria-label="Who are you?"]:not([data-anim])::after {
     animation: none;
     transform: translateX(-210%) rotate(8deg);
   }

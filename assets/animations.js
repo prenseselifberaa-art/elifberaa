@@ -42,7 +42,10 @@
       var hit = document.elementFromPoint(event.clientX, event.clientY);
       var overUi = !!(
         hit &&
-        hit.closest('a,button,input,textarea,select,label,[role="button"]')
+        hit.closest(
+          'a,button,input,textarea,select,label,[role="button"],form,' +
+            '.grid > div,[style*="aspect-ratio"]'
+        )
       );
       document.body.classList.toggle("kitty-over-ui", overUi);
     },
