@@ -155,8 +155,8 @@
   }
 
   function spawnHeart(burst) {
-    if (!sparkLayer || KITTY.particles > 24) return;
-    var size = 10 + Math.random() * 10;
+    if (!sparkLayer || KITTY.particles > 16) return;
+    var size = 8 + Math.random() * 8;
     var hue = ["#ff8fb8", "#f5b9ea", "#c686ff", "#ffba71"][
       Math.floor(Math.random() * 4)
     ];
@@ -200,14 +200,12 @@
     if (!KITTY.running) return;
     var dt = Math.min(32, now - (KITTY.last || now));
     KITTY.last = now;
-    var ease = 1 - Math.pow(0.00000000000000000001, dt / 1000);
+    var ease = 1 - Math.pow(0.000001, dt / 1000);
     KITTY.vx = (KITTY.tx - KITTY.x) * ease;
     KITTY.vy = (KITTY.ty - KITTY.y) * ease;
     KITTY.x += KITTY.vx;
     KITTY.y += KITTY.vy;
-    var speed = Math.min(1.6, Math.abs(KITTY.vx) + Math.abs(KITTY.vy));
-    var tilt = Math.max(-12, Math.min(12, KITTY.vx * 0.4));
-    var squash = Math.min(0.12, speed * 0.05);
+    var speed = Math.min(1.2, Math.abs(KITTY.vx) + Math.abs(KITTY.vy));
     var halfW = kittyEl.offsetWidth / 2;
     var halfH = kittyEl.offsetHeight / 2;
     kittyEl.style.transform =
@@ -215,14 +213,8 @@
       (KITTY.x - halfW).toFixed(1) +
       "px," +
       (KITTY.y - halfH).toFixed(1) +
-      "px,0) rotate(" +
-      tilt.toFixed(2) +
-      "deg) scale(" +
-      (1 + squash).toFixed(3) +
-      "," +
-      (1 - squash * 0.7).toFixed(3) +
-      ")";
-    if (speed > 0.45 && now - KITTY.lastHeart > 110) {
+      "px,0)";
+    if (speed > 0.5 && now - KITTY.lastHeart > 220) {
       KITTY.lastHeart = now;
       spawnHeart(false);
     }

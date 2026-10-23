@@ -117,11 +117,14 @@ hidden on fine pointers and the cat follows the pointer closely enough to act
 as the cursor; opening the ask view restores the normal cursor.
 
 The kitty is an original pastel princess-cat illustration drawn for this page,
-with a gold tiara, lashes, a pink bow, a tail, blinking, bobbing, speed squash,
+with a gold tiara, lashes, a pink bow, a tail, blinking, a gentle bob,
 heart and star particles, a touch lift so a finger does not cover it, happy
 eyes and a burst when it is clicked nearby, and a small speech bubble ("mrrp",
 "hi", "meow", "prr"). The mode is labelled "Prenses" with a crown icon.
-On a fine pointer the kitty replaces the native cursor on empty background:
+The kitty is 88 px on desktop and 96 px on phones; when the pointer is over a
+card or control it fades out (the native cursor returns) instead of peeking
+from behind the surface. On a fine pointer the kitty replaces the native
+cursor on empty background:
 `body.kitty-cursor` sets `cursor: none`, but the `kitty-over-ui` class restores
 the normal pointer/text cursor whenever the pointer is over a button, link or
 field (the kitty is behind those surfaces anyway). It contains no third-party

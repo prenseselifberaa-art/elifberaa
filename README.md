@@ -52,9 +52,9 @@ node scripts/build.mjs
   önünde gezer; ikisi de tıklamayı engellemez.
 - Masaüstünde de boya kartların üzerine hafifçe çarpılır; fare durunca arka plan
   kendi kendine yumuşak bir iz bırakır.
-- Prenses seçilince boş arka planda fare imleci gizlenir, imlecin yerini taçlı
-  kedi alır; butonların üzerinde normal imleç görünür, böylece tıklamak kolay
-  kalır.
+- Prenses seçilince boş arka planda fare imleci gizlenir, imlecin yerini küçük
+  taçlı kedi alır; kartların üzerinde kedi kaybolur ve normal imleç görünür,
+  böylece tıklamak kolay kalır.
 - Tüm animasyonlar duvar kağıdı gibi içeriğin arkasındadır; kartların ve
   butonların üzerine taşmaz.
 - Butonlarda ayrı mikro animasyon: üzerine gelince pembe ışık süpürmesi ve hafif
