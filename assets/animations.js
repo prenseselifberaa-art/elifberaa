@@ -463,6 +463,19 @@
     },
   };
 
+  function decorateAvatars() {
+    var avatars = document.querySelectorAll(
+      '#page-view button[aria-label="Who are you?"]'
+    );
+    Array.prototype.forEach.call(avatars, function (button) {
+      if (button.querySelector(".avatar-ring")) return;
+      var ring = document.createElement("span");
+      ring.className = "avatar-ring";
+      ring.setAttribute("aria-hidden", "true");
+      button.appendChild(ring);
+    });
+  }
+
   function bindButtonSparkles() {
     var pageView = document.getElementById("page-view");
     if (!pageView) return;
@@ -524,4 +537,5 @@
 
   bindButtonSparkles();
   init();
+  decorateAvatars();
 })();

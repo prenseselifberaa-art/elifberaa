@@ -130,6 +130,10 @@ the normal pointer/text cursor whenever the pointer is over a button, link or
 field (the kitty is behind those surfaces anyway). It contains no third-party
 character art.
 
+The profile photo has its own frame animation: a rotating pastel conic ring,
+a periodic light sweep every 7.5 s, a 1.045 hover zoom with a small saturation
+lift, and a 9 s breathing scale on phones. Reduced motion disables all of it.
+
 Buttons have their own micro-interactions, independent of the background:
 a pink sheen sweep and 1 px lift on hover, a press scale, a soft pulse on the
 pink CTA pills, a pink focus ring, and five small gold/pink/lavender stars that

@@ -526,3 +526,144 @@ body.kitty-over-ui #kitty-layer {
     transform: none;
   }
 }
+
+/* Photo frame animation -------------------------------------------------- */
+
+@property --avatar-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+#page-view button[aria-label="Who are you?"] img {
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1), filter 0.6s ease;
+  will-change: transform;
+}
+
+#page-view button[aria-label="Who are you?"]:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.06) contrast(1.02);
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  padding: 3px;
+  border-radius: var(--ff-tile-radius, 28px);
+  background: conic-gradient(
+    from var(--avatar-angle),
+    #ff8fb8,
+    #f7c948,
+    #c686ff,
+    #8d9fff,
+    #ff8fb8
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.9;
+  pointer-events: none;
+  animation: avatar-spin 7s linear infinite;
+}
+
+@keyframes avatar-spin {
+  to {
+    --avatar-angle: 360deg;
+  }
+}
+
+#page-view button[aria-label="Who are you?"]::after {
+  width: 46%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.42),
+    rgba(255, 143, 184, 0.28),
+    transparent
+  );
+  animation: avatar-sheen 7.5s ease-in-out infinite;
+}
+
+@keyframes avatar-sheen {
+  0%,
+  72% {
+    transform: translateX(-210%) rotate(8deg);
+  }
+  86%,
+  100% {
+    transform: translateX(430%) rotate(8deg);
+  }
+}
+
+@media (max-width: 999px) {
+  #page-view button[aria-label="Who are you?"] img {
+    animation: avatar-breathe 9s ease-in-out infinite;
+  }
+}
+
+@keyframes avatar-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.018);
+  }
+}
+
+#ask-avatar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: 16px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--avatar-angle),
+    #ff8fb8,
+    #f7c948,
+    #c686ff,
+    #ff8fb8
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: avatar-spin 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-ring,
+  @media (max-width: 999px) {
+  #page-view button[aria-label="Who are you?"] img {
+    animation: avatar-breathe 9s ease-in-out infinite;
+  }
+}
+
+@keyframes avatar-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.018);
+  }
+}
+
+#ask-avatar::after {
+    animation: none;
+  }
+
+  #page-view button[aria-label="Who are you?"]::after {
+    animation: none;
+    transform: translateX(-210%) rotate(8deg);
+  }
+
+  #page-view button[aria-label="Who are you?"] img {
+    animation: none;
+    transition: none;
+  }
+}

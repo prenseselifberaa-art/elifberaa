@@ -57,6 +57,8 @@ node scripts/build.mjs
   böylece tıklamak kolay kalır.
 - Tüm animasyonlar duvar kağıdı gibi içeriğin arkasındadır; kartların ve
   butonların üzerine taşmaz.
+- Profil fotoğrafında dönen pastel çerçeve, periyodik ışık süpürmesi, hover'da
+  hafif zoom ve mobilde nefes alma animasyonu vardır.
 - Butonlarda ayrı mikro animasyon: üzerine gelince pembe ışık süpürmesi ve hafif
   kalkma, basınca küçülme, CTA'larda nabız ve tıklamada yıldız kıvılcımı.
 - `prefers-reduced-motion` açıkken animasyon varsayılan olarak kapalıdır;
