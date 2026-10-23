@@ -285,8 +285,8 @@
       "status": "live",
       "gallery": [
         {
-          "url": "https://knspqvprnlziflcqinul.supabase.co/storage/v1/object/public/portfolio-assets/3051dd9c-8f54-4f17-9999-45ea8c2e30f8/widgets/28637618-2080-4025-af3a-7d6109b29ded/projects/7b9cbb89-57c5-40b9-9c81-9cae752f853d/1792676606804-tc9ru.png",
-          "path": "3051dd9c-8f54-4f17-9999-45ea8c2e30f8/widgets/28637618-2080-4025-af3a-7d6109b29ded/projects/7b9cbb89-57c5-40b9-9c81-9cae752f853d/1792676606804-tc9ru.png"
+          "url": "",
+          "path": ""
         }
       ],
       "tagline": "I did this project to see my own clothes more organized and on a single page. In the future, the feature of making a combination with AI will also come.",
@@ -563,9 +563,9 @@
   },
   "resume": {
     "file": {
-      "url": "https://knspqvprnlziflcqinul.supabase.co/storage/v1/object/public/portfolio-assets/3051dd9c-8f54-4f17-9999-45ea8c2e30f8/widgets/2b243498-2bd6-42fd-9c9f-5bb8185f7877/resume-1792675552978.pdf",
+      "url": "/files/Elif-Beraa-Cigrikci-CV.pdf",
       "name": "Elif Beraa Çığrıkçı CV.pdf",
-      "path": "3051dd9c-8f54-4f17-9999-45ea8c2e30f8/widgets/2b243498-2bd6-42fd-9c9f-5bb8185f7877/resume-1792675552978.pdf",
+      "path": "files/Elif-Beraa-Cigrikci-CV.pdf",
       "size": 124092,
       "uploaded_at": "2026-10-22T13:25:53.604Z"
     },

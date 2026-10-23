@@ -39,6 +39,12 @@
     function (event) {
       lastPointer.x = event.clientX;
       lastPointer.y = event.clientY;
+      var hit = document.elementFromPoint(event.clientX, event.clientY);
+      var overUi = !!(
+        hit &&
+        hit.closest('a,button,input,textarea,select,label,[role="button"]')
+      );
+      document.body.classList.toggle("kitty-over-ui", overUi);
     },
     { passive: true }
   );
@@ -316,6 +322,9 @@
       "kitty-cursor",
       !!hidden && fine && mode === "kitty" && !suspended
     );
+    if (!hidden || mode !== "kitty" || suspended) {
+      document.body.classList.remove("kitty-over-ui");
+    }
   }
 
   function stopAll() {
@@ -462,5 +471,65 @@
     },
   };
 
+  function bindButtonSparkles() {
+    var pageView = document.getElementById("page-view");
+    if (!pageView) return;
+    var reduce = window.matchMedia
+      ? window.matchMedia("(prefers-reduced-motion: reduce)")
+      : null;
+    var STAR =
+      "M12 2l2.8 6.8L22 11l-7.2 2.2L12 20l-2.8-6.8L2 11l7.2-2.2z";
+    pageView.addEventListener(
+      "pointerdown",
+      function (event) {
+        if (reduce && reduce.matches) return;
+        var button = event.target.closest("button");
+        if (!button || button.closest("#anim-dock")) return;
+        var rect = button.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        for (var i = 0; i < 5; i += 1) {
+          var spark = svgIcon(
+            STAR,
+            ["#f7c948", "#ff8fb8", "#c686ff"][i % 3],
+            10
+          );
+          spark.classList.add("btn-spark");
+          spark.style.left = event.clientX - rect.left + "px";
+          spark.style.top = event.clientY - rect.top + "px";
+          button.appendChild(spark);
+          var angle = Math.random() * Math.PI * 2;
+          var distance = 18 + Math.random() * 26;
+          var animation = spark.animate(
+            [
+              { transform: "translate(-50%, -50%) scale(.4)", opacity: 0 },
+              {
+                transform: "translate(-50%, -50%) scale(1)",
+                opacity: 0.95,
+                offset: 0.2,
+              },
+              {
+                transform:
+                  "translate(calc(-50% + " +
+                  Math.cos(angle) * distance +
+                  "px), calc(-50% + " +
+                  Math.sin(angle) * distance +
+                  "px)) scale(.5)",
+                opacity: 0,
+              },
+            ],
+            { duration: 620, easing: "cubic-bezier(.2,.7,.3,1)" }
+          );
+          animation.onfinish = (function (node) {
+            return function () {
+              if (node.parentNode) node.parentNode.removeChild(node);
+            };
+          })(spark);
+        }
+      },
+      { passive: true }
+    );
+  }
+
+  bindButtonSparkles();
   init();
 })();

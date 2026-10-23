@@ -105,12 +105,11 @@ nothing is sent over the network. The control sits bottom-right on desktop and
 top-right on mobile (over the hero photo, clear of card actions), hides while
 scrolling down, and suspends both engines while the ask view is open.
 
-On screens under 1000 px the fluid canvas is composited above the cards with
-`mix-blend-mode: multiply`; on desktop the same blend runs at 0.75 opacity, so
-the dye stays visible instead of hiding behind opaque cards. When no pointer
-movement has happened for five seconds the fluid emits a soft eight-step
-ambient trail every six seconds. The kitty layer is above the cards on every
-viewport. Both layers are `pointer-events: none`.
+All three layers (fluid canvas, kitty, princess dust) sit at `z-index: 0`,
+behind the cards and buttons, like wallpaper; none of them tint or cover the
+content. When no pointer movement has happened for five seconds the fluid emits
+a soft eight-step ambient trail every six seconds. All layers are
+`pointer-events: none`.
 
 Desktop shortcuts: 1 = Fluid, 2 = Prenses, 3 = Off. The segmented control is
 44 px high and never auto-hides on desktop. In kitty mode the native cursor is
@@ -122,9 +121,16 @@ with a gold tiara, lashes, a pink bow, a tail, blinking, bobbing, speed squash,
 heart and star particles, a touch lift so a finger does not cover it, happy
 eyes and a burst when it is clicked nearby, and a small speech bubble ("mrrp",
 "hi", "meow", "prr"). The mode is labelled "Prenses" with a crown icon.
-On a fine pointer the kitty replaces the native cursor: `body.kitty-cursor`
-sets `cursor: none` while the mode is active and the ask view is closed. It
-contains no third-party character art. Under `prefers-reduced-motion` the page starts with
+On a fine pointer the kitty replaces the native cursor on empty background:
+`body.kitty-cursor` sets `cursor: none`, but the `kitty-over-ui` class restores
+the normal pointer/text cursor whenever the pointer is over a button, link or
+field (the kitty is behind those surfaces anyway). It contains no third-party
+character art.
+
+Buttons have their own micro-interactions, independent of the background:
+a pink sheen sweep and 1 px lift on hover, a press scale, a soft pulse on the
+pink CTA pills, a pink focus ring, and five small gold/pink/lavender stars that
+pop from the click point (skipped under reduced motion). Under `prefers-reduced-motion` the page starts with
 the animation off; selecting a mode manually is treated as an explicit opt-in.
 
 ## Branding removal (2026-10-23)
