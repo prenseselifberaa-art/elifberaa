@@ -456,6 +456,15 @@ body.ask-open {
   flex-shrink: 0;
 }
 
+#page-view button[aria-label="Submit question"]::before {
+  display: none;
+}
+
+#page-view button[aria-label="Submit question"]:not([data-anim]):focus-visible {
+  outline: 2px solid #2a1620;
+  outline-offset: 2px;
+}
+
 #page-view button[aria-label]:not([data-anim])::after {
   content: "";
   position: absolute;
