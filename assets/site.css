@@ -433,9 +433,27 @@ body.ask-open {
 }
 
 #page-view button[aria-label]:not([data-anim]):focus-visible {
-  outline: 2px solid #e64a8d;
-  outline-offset: 2px;
-  border-radius: 28px;
+  outline: none;
+}
+
+#page-view button[aria-label]:not([data-anim])::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border: 2px solid #e64a8d;
+  border-radius: var(--ff-tile-radius, 28px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+
+#page-view button[aria-label]:not([data-anim]):focus-visible::before {
+  opacity: 1;
+}
+
+#page-view button[aria-label="Submit question"] {
+  flex-shrink: 0;
 }
 
 #page-view button[aria-label]:not([data-anim])::after {
@@ -487,5 +505,10 @@ body.ask-open {
   #page-view span[style*="rgb(230, 74, 141)"] {
     animation: none;
     transition: none;
+  }
+
+  #page-view button[aria-label]:not([data-anim]):hover,
+  #page-view button[aria-label]:not([data-anim]):active {
+    transform: none;
   }
 }
